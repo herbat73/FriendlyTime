@@ -22,11 +22,7 @@ namespace FriendlyTime
                     return;
                 };
 
-                var hours = Convert.ToInt32(timeEntered.Substring(0, 2));
-                var minutes = Convert.ToInt32(timeEntered.Substring(3, 2));
-                var ts = DateTime.Now;
-                ts = new DateTime(ts.Year, ts.Month, ts.Day, hours, minutes, 0);
-                DisplayFriendlyTime(ts);
+                DisplayFriendlyTime(timeEntered);
             }
         }
 
@@ -34,5 +30,14 @@ namespace FriendlyTime
         {
             Console.WriteLine(dateTime.ToHumanFriendlyDateString());
         }
+        
+        private static void DisplayFriendlyTime(string time)
+        {
+            var hours = Convert.ToInt32(time.Substring(0, 2));
+            var minutes = Convert.ToInt32(time.Substring(3, 2));
+            var ts = DateTime.Now;
+            ts = new DateTime(ts.Year, ts.Month, ts.Day, hours, minutes, 0);
+            DisplayFriendlyTime(ts);
+        }        
     }
 }

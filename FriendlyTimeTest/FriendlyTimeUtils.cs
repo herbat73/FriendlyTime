@@ -26,4 +26,17 @@ namespace FriendlyTimeTest
             Assert.AreEqual(expected, actual);
         }
     }
+    
+    [TestFixture]
+    public class StringExtensionsTest
+    {
+        [Test]
+        [TestCase("test","Test")]
+        [TestCase("two o'clock","Two o'clock")]
+        [TestCase("twenty five past one","Twenty five past one")]
+        public void FirstCharToUpper(string input, string expected)
+        {
+            Assert.AreEqual(expected, input.FirstCharToUpper());
+        }
+    }    
 }
